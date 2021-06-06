@@ -26,6 +26,23 @@ df=heart_data[(heart_data["istenilenfeature"]<max_threshold) & (heart_data["iste
 df
 ```
 ---
+## Label Encoding
+- Feature'lar string ifadeler içeriyorsa ve bunları sütun olarak kategeorik değerlere çevirmek istiyorsanız label encoding işlemini uygulayabilirsiniz.
+- Örnek: iris datasetinde Species feature'ı ['Iris-setosa', 'Iris-versicolor', 'Iris-virginica']:
+```
+from sklearn.preprocessing import LabelEncoder
+le=LabelEncoder()
+df_le=iris.copy()
+le.fit(df_le["Species"])
+```
+```
+list(le.classes_)
+```
+```
+df_le["Species"]=le.transform(df_le["Species"])
+df_le
+```
+---
 ## Scaling
 
 - Decision tree için scaling yapmak şart değildir.
